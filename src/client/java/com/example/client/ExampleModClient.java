@@ -1,6 +1,5 @@
 package com.example.client;
 
-import com.example.CustomGuiScreen;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
@@ -14,7 +13,7 @@ public class ExampleModClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        // Теперь регистрируем строго на ПРАВЫЙ ШИФТ (RIGHT_SHIFT)
+        // Регистрация на Правый Шифт
         openMenuKey = KeyBindingHelper.registerKeyBinding(new KeyBinding(
                 "key.examplemod.open_menu",
                 InputUtil.Type.KEYSYM,
@@ -22,7 +21,6 @@ public class ExampleModClient implements ClientModInitializer {
                 "category.examplemod.cheats"
         ));
 
-        // Отслеживаем нажатие кнопки в игре
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             if (openMenuKey.wasPressed() && client.player != null) {
                 client.setScreen(new CustomGuiScreen());

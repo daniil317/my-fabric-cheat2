@@ -38,17 +38,17 @@ public class ExampleModClient implements ClientModInitializer {
 
         @Override
         protected void init() {
+            // Используем гарантированные методы для создания кнопки без привязки к точным размерам экрана
+            int buttonWidth = 200;
+            int buttonHeight = 20;
+            int x = (this.width - buttonWidth) / 2;
+            int y = (this.height - buttonHeight) / 2;
+
             this.addDrawableChild(ButtonWidget.builder(Text.literal("Test Button"), button -> {
                 if (MinecraftClient.getInstance().player != null) {
                     MinecraftClient.getInstance().player.sendMessage(Text.literal("Кнопка работает!"), false);
                 }
-            }).dimensions(this.width / 2 - 100, this.height / 2 - 10, 200, 20).build());
-        }
-
-        @Override
-        public boolean shouldCloseOnEsc() {
-            return true;
+            }).dimensions(x, y, buttonWidth, buttonHeight).build());
         }
     }
 }
-

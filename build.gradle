@@ -34,9 +34,6 @@ dependencies {
 }
 
 
-	
-}
-
 processResources {
 	def version = project.version
 	inputs.property "version", version

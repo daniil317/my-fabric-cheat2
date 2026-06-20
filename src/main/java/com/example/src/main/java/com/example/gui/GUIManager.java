@@ -504,4 +504,7 @@ public class GuiManager implements KeyDownListener, TickListener, Render2DListen
 
 			renderer.drawRoundedBox(mouseX + 12, mouseY + 12, (tooltipWidth + 4) * 2, (tooltipHeight + 4) * 2,
 					roundingRadius.getValue(), windowBackgroundColor.getValue());
-			renderer.drawString(tooltip, mouseX +
+			    renderer.drawString(tooltip, mouseX + 12, mouseY + 12, 0xFFFFFF);
+} // Закрывает if (tooltip != null)
+} // Закрывает метод onRender
+} // Закрывает класс GUIManager
